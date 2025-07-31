@@ -1,0 +1,142 @@
+/*
+
+.card-img-top {
+    height: 350px; 
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+    position: relative;
+    z-index: 2;
+}
+
+.card { 
+    position: relative;
+    max-width: 300px;
+    margin: auto;
+    padding: 10px;
+    border-radius: 16px;
+    color: #01010f;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(247, 214, 139, 0.153); // camada mágica sobre a imagem
+    z-index: 1;
+}
+.card-body {
+    position: relative;
+    z-index: 2;
+    background-color: transparent;
+}
+.card-title {
+    font-family: 'Garamond', serif;
+    font-size: 1.2rem;
+    color: #5b5076;
+    font-weight: bold;
+}
+.card-text {
+    font-size: 0.9rem;
+    color: #2c2c2c;
+}
+*/
+
+.card-inner, .card-back::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(240, 205, 123, 0.153); // camada mágica sobre a imagem
+  z-index: 1;
+}
+
+.card-text {
+  font-size: 16px;
+  color: #542602;
+  font-family: "Garamond", serif;
+  padding-left: 16px;
+
+}
+
+.card-title {
+  font-family: 'Garamond', serif;
+  font-size: 1.2rem;
+  color: #562a01;
+  font-weight: bold;
+}
+
+.card-img-top {
+  height: 350px; 
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  position: relative;
+  z-index: 2;
+  padding: 9px 19px 3px 19px;
+  border-radius: 30px 30px 0px 0px
+}
+
+.card-custom {
+  height: 430px;
+  min-width: 290px;
+  max-width: 290px;
+  margin: 1rem auto;
+  perspective: 1000px;
+  cursor: pointer;
+  
+
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-custom:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.5rem;
+}
+
+.card-front {
+  background: rgb(252, 250, 246);
+  border: 1px solid #017245;
+}
+
+.card-back {
+  background: rgb(250, 247, 243);
+  border: 1px solid #e5e7eb;
+  transform: rotateY(180deg);
+  padding: 5%;
+}
+
+.card-back-text{
+  font-size: 18px;
+  color: #542602;
+  font-family: "Garamond", serif;
+
+}
+
+.detalhes-personagens {
+  padding-right: 6%;
+  padding-left: 6%;
+}
+
+.navbar{
+  background-color: #300101 ;
+}
+
+.navbar-brand{
+  color:#f9db93;
+  font-size: 1.5rem;
+}

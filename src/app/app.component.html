@@ -1,0 +1,65 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Hogwarts</a>
+
+    <form class="d-flex ms-auto">
+      <input class="form-control me-2" type="search" placeholder="Buscar Personagem" [(ngModel)]="searchName"
+        name="name" />
+      <button class="btn btn-outline-success" (click)="buscarPersonagens()">Buscar</button>
+        <button class="btn btn-outline-success" (click)="login()">Login</button>
+                <button class="btn btn-outline-success" (click)="logout()">logout</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="card-custom col-3" *ngFor="let item of personagens">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="row">
+            <img [src]="'data:image/jpeg;base64,' + item.base64Img" class="card-img-top"
+              alt="Imagem de {{ item.name }}">
+          </div>
+
+          <div class="detalhes-personagens">
+            <div class="row">
+              <h5 class="card-title d-flex justify-content-center"> <span> {{ item.name }} </span> </h5>
+            </div>
+            <div class="row card-text">
+              <div class="col-6 d-flex justify-content-start"> <span> <b> Nascimento: </b></span></div>
+              <div class="col-6 d-flex justify-content-start"><span>{{ item.bornDate }}</span> </div>
+            </div>
+
+            <div class="row card-text">
+              <div class="col-6 d-flex justify-content-start"><span><b> Casa: </b> </span></div>
+              <div class="col-6 d-flex justify-content-start"><span> {{ item.house }} </span> </div>
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="card-back">
+
+            <div class="row">
+              <div class="col-12 card-back-text "><span class="title"><b> Casa: </b> </span></div>
+              <div class="col-12"><p class="text-justify"> {{ item.house }} </p> </div>
+            </div>
+            
+            
+            <div class="row">
+              <div class="col-12 card-back-text"><span class="title"><b> Varinha: </b> </span></div>
+              <div class="col-12"><p class="text-justify"> {{ item.varinha }} </p> </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 card-back-text"><span class="title"><b> Patrono: </b> </span></div>
+              <div class="col-12"><p class="text-justify"> {{ item.patrono }} </p> </div>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
