@@ -43,6 +43,7 @@ async init(): Promise<void> {
 
   logout(): void {
     this.keycloak.logout();
+    localStorage.removeItem('token');
   }
 
   login(): void {
