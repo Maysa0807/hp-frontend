@@ -3,63 +3,93 @@
     <a class="navbar-brand" href="#">Hogwarts</a>
 
     <form class="d-flex ms-auto">
+      <button class="btn btn-warning" (click)="filtrarFavoritos()">Favoritos</button>
       <input class="form-control me-2" type="search" placeholder="Buscar Personagem" [(ngModel)]="searchName"
         name="name" />
-      <button class="btn btn-outline-success" (click)="buscarPersonagens()">Buscar</button>
-        <button class="btn btn-outline-success" (click)="login()">Login</button>
-                <button class="btn btn-outline-success" (click)="logout()">logout</button>
+      <button class="btn btn-primary" (click)="buscarPersonagens()">Buscar</button>
+      <button class="btn btn-outline-success" (click)="login()" *ngIf="!isLogged()">Login</button>
+      <button class="btn btn-danger" (click)="logout()" *ngIf="isLogged()">Logout</button>
     </form>
   </div>
 </nav>
 
 <div class="container mt-4">
   <div class="row">
-    <div class="card-custom col-3" *ngFor="let item of personagens">
-      <div class="card-inner">
-        <div class="card-front">
-          <div class="row">
-            <img [src]="'data:image/jpeg;base64,' + item.base64Img" class="card-img-top"
-              alt="Imagem de {{ item.name }}">
-          </div>
 
-          <div class="detalhes-personagens">
+    <div *ngFor="let personagem of personagens" style="width: auto;" class="divforpersonagens">
+
+      <div class="card-custom col-3" *ngIf="(filtraFavoritos && personagem.favorito) || filtraFavoritos == false">
+        <div class="card-inner">
+          <!-- Parte da frente -->
+          <div class="card-front">
             <div class="row">
-              <h5 class="card-title d-flex justify-content-center"> <span> {{ item.name }} </span> </h5>
-            </div>
-            <div class="row card-text">
-              <div class="col-6 d-flex justify-content-start"> <span> <b> Nascimento: </b></span></div>
-              <div class="col-6 d-flex justify-content-start"><span>{{ item.bornDate }}</span> </div>
+              <img [src]="'data:image/jpeg;base64,' + personagem.base64Img" class="card-img-top"
+                alt="Imagem de {{ personagem.name }}">
             </div>
 
-            <div class="row card-text">
-              <div class="col-6 d-flex justify-content-start"><span><b> Casa: </b> </span></div>
-              <div class="col-6 d-flex justify-content-start"><span> {{ item.house }} </span> </div>
+            <div class="detalhes-personagens">
+              <div class="row">
+                <h5 class="card-title d-flex justify-content-center align-personagems-center gap-2">
+                  <span>{{ personagem.name }}</span>
+                </h5>
+              </div>
+              <div class="row card-text">
+                <div class="col-6 d-flex justify-content-start"> <span> <b> Nascimento: </b></span></div>
+                <div class="col-6 d-flex justify-content-start"><span>{{ personagem.bornDate }}</span> </div>
+              </div>
+
+              <div class="row card-text">
+                <div class="col-6 d-flex justify-content-start"><span><b> Casa: </b> </span></div>
+                <div class="col-6 d-flex justify-content-start"><span> {{ personagem.house }} </span> </div>
+              </div>
             </div>
+
+
           </div>
 
-
-        </div>
-
-        <div class="card-back">
+          <!-- Parte de trás -->
+          <div class="card-back">
 
             <div class="row">
               <div class="col-12 card-back-text "><span class="title"><b> Casa: </b> </span></div>
-              <div class="col-12"><p class="text-justify"> {{ item.house }} </p> </div>
+              <div class="col-12">
+                <p class="text-justify"> {{ personagem.house }} </p>
+              </div>
             </div>
-            
-            
+
+
             <div class="row">
               <div class="col-12 card-back-text"><span class="title"><b> Varinha: </b> </span></div>
-              <div class="col-12"><p class="text-justify"> {{ item.varinha }} </p> </div>
+              <div class="col-12">
+                <p class="text-justify"> {{ personagem.varinha }} </p>
+              </div>
             </div>
 
             <div class="row">
               <div class="col-12 card-back-text"><span class="title"><b> Patrono: </b> </span></div>
-              <div class="col-12"><p class="text-justify"> {{ item.patrono }} </p> </div>
+              <div class="col-12">
+                <p class="text-justify"> {{ personagem.patrono }} </p>
+              </div>
             </div>
+
+            <!-- Botão de favoritar -->
+            <div class="row mt-2">
+              <div class="col-12 d-flex justify-content-center">
+                <button class="btn btn-outline-warning btn-sm btn-favoritar"
+                  (click)="favoritarDesfavoritar(personagem)">
+                  <span *ngIf="personagem.favorito">⭐ Remover {{ personagem.name }} dos favoritos</span>
+                  <span *ngIf="!personagem.favorito">☆ Adicionar {{ personagem.name }} aos favoritos</span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
 
     </div>
+
+
+
   </div>
 </div>

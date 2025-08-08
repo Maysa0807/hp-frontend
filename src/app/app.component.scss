@@ -1,48 +1,3 @@
-/*
-
-.card-img-top {
-    height: 350px; 
-    object-fit: cover;
-    border-radius: 12px 12px 0 0;
-    position: relative;
-    z-index: 2;
-}
-
-.card { 
-    position: relative;
-    max-width: 300px;
-    margin: auto;
-    padding: 10px;
-    border-radius: 16px;
-    color: #01010f;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(247, 214, 139, 0.153); // camada mágica sobre a imagem
-    z-index: 1;
-}
-.card-body {
-    position: relative;
-    z-index: 2;
-    background-color: transparent;
-}
-.card-title {
-    font-family: 'Garamond', serif;
-    font-size: 1.2rem;
-    color: #5b5076;
-    font-weight: bold;
-}
-.card-text {
-    font-size: 0.9rem;
-    color: #2c2c2c;
-}
-*/
-
 .card-inner, .card-back::before {
   content: "";
   position: absolute;
@@ -118,6 +73,8 @@
   border: 1px solid #e5e7eb;
   transform: rotateY(180deg);
   padding: 5%;
+  pointer-events: auto;
+  z-index: 2;
 }
 
 .card-back-text{
@@ -140,3 +97,16 @@
   color:#f9db93;
   font-size: 1.5rem;
 }
+
+.btn-favoritar{
+  z-index: 9999;
+}
+
+.divforpersonagens:empty {
+  display: none;
+}
+
+button {
+    margin-right: 8px;
+}
+

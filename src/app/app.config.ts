@@ -21,7 +21,9 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(
       withInterceptors([
         authInterceptor
-      ])), KeycloakService, {
+      ])),
+      KeycloakService, 
+      {
       provide: APP_INITIALIZER,
       useFactory: initializeKeycloak,
       multi: true,
