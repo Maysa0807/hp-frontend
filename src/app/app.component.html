@@ -18,7 +18,7 @@
 
     <div *ngFor="let personagem of personagens" style="width: auto;" class="divforpersonagens">
 
-      <div class="card-custom col-3" *ngIf="(filtraFavoritos && personagem.favorito) || filtraFavoritos == false">
+      <div class="card-custom col-3" *ngIf="(filtroFavoritos && personagem.favorito) || filtroFavoritos == false">
         <div class="card-inner">
           <!-- Parte da frente -->
           <div class="card-front">

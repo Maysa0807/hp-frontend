@@ -19,7 +19,7 @@ export class AppComponent implements OnInit{
   personagens: any[] = [];
   favorites: number[] = [];
   searchName: string;
-  filtraFavoritos = false;
+  filtroFavoritos = false;
   //searchHouse: string | null = null;
   
   constructor(
@@ -81,7 +81,7 @@ favoritarDesfavoritar(personagem: any){
 }
 
 filtrarFavoritos(){
-  this.filtraFavoritos = !this.filtraFavoritos;
+  this.filtroFavoritos = !this.filtroFavoritos;
 }
 
 }
