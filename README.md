@@ -1,59 +1,62 @@
-# HarryPotterApp
+# Harry Potter App - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.5.
+Aplicação frontend desenvolvida em Angular que consome a API REST do serviço hp-personagens e interage com o Keycloak para autenticação via OAuth2/JWT.
 
-## Development server
+## Funcionalidades
 
-To start a local development server, run:
+- Filtrar personagens de Harry Potter por nome ou casa.
+- Fazer login/logout via Keycloak.
+- Favoritar e desfavoritar personagens, com persistência no backend.
 
+## Tecnologias Utilizadas
+
+- Angular
+- TypeScript
+- Bootstrap
+- Keycloak (OAuth2 + JWT)
+
+--- 
+
+## - Diagrama mostrando o fluxo de comunicação -
+<img width="1338" height="588" alt="Image" src="https://github.com/user-attachments/assets/da5b37fd-b4e1-4c9f-9f80-4c453f77a0fd" />
+
+## Como rodar o projeto
+
+### Pré-requisitos
+
+- Node.js 
+- Angular CLI instalado globalmente:
+```bash
+npm install -g @angular/cli
+```
+- Backend hp-personagens rodando localmente
+```bash
+git clone https://github.com/Maysa0807/hp-personagens
+```
+- Servidor Keycloak configurado com o realm e client correspondentes
+
+---
+
+### Clonar o repositório
+```bash
+git clone https://github.com/Maysa0807/hp-frontend.git
+cd hp-frontend
+```
+---
+
+### Instalar dependências 
+```bash 
+npm install
+```
+---
+
+### Rodar o projeto
 ```bash
 ng serve
 ```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+O app estará disponível em: 
+``` http://localhost:4200 ```
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
